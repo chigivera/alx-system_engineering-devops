@@ -1,2 +1,2 @@
 #!/bin/bash
-find /tmp/ -maxdepth 1 -name "*.html" -exec cp -u -- "{}" ../ \
+cp /tmp/*.html /tmp/..
