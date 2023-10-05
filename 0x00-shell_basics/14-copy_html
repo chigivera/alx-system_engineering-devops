@@ -1,2 +1,2 @@
 #!/bin/bash
-cp -u  /tmp/*.html /tmp/../
+find /tmp -maxdepth 1 -name "*.html" -exec sh -c 'if [ ! -e "/$(basename "$0")" ] || [ "$0" -nt "/$(basename "$0")" ]; then cp "$0" ".."; fi' {} \
