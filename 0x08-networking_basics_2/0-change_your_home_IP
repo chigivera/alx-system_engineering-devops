@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # Script that configures an Ubuntu server with custom IP resolutions:
 # - localhost resolves to 127.0.0.2
 # - facebook.com resolves to 8.8.8.8
