@@ -1,0 +1,25 @@
+flowchart TD
+    A["External Network\n(Internet)"]
+    B["Firewall Layer 1"]
+    C["Load Balancer\n(with SSL Cert)"]
+    D["Server1\n(Web)"]
+    E["Server2\n(App)"]
+    F["MySQL Server"]
+    G["Monitoring Tools"]
+    H["Sumo Logic"]
+    I["Data Collectors"]
+
+    A --> B
+    B --> C
+    C --> D & E
+    D & E --> F
+    F --> G
+    G --> H & I
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#dfd,stroke:#333,stroke-width:2px
+    style D fill:#fdd,stroke:#333,stroke-width:2px
+    style E fill:#fdd,stroke:#333,stroke-width:2px
+    style F fill:#ddf,stroke:#333,stroke-width:2px
+    style G fill:#ffd,stroke:#333,stroke-width:2px

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Installs and configures Nginx web server
+
+# Install nginx
+apt-get update
+apt-get install -y nginx
+
+# Create index page with "Hello World!"
+echo "Hello World!" > /var/www/html/index.html
+
+# Start nginx (without using systemctl)
+/etc/init.d/nginx start

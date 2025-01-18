@@ -1,0 +1,23 @@
+flowchart TD
+    A["User's Browser"]
+    B["Load Balancer (HAProxy)"]
+    C["Server 1 (Web & App)"]
+    D["Server 2 (Web & App)"]
+    E["MySQL Cluster (Primary-Replica)"]
+    F["Third Server (Database Backup)"]
+
+    A --> B
+    B --> C
+    B --> D
+    C --> E
+    D --> E
+    E --> F
+
+    style A fill:#FFECD1,stroke:#001524,stroke-width:2px,color:#001524
+    style B fill:#15616D,stroke:#001524,stroke-width:2px,color:#FFECD1
+    style C fill:#FFECD1,stroke:#001524,stroke-width:2px,color:#001524
+    style D fill:#FFECD1,stroke:#001524,stroke-width:2px,color:#001524
+    style E fill:#15616D,stroke:#001524,stroke-width:2px,color:#FFECD1
+    style F fill:#001524,stroke:#15616D,stroke-width:2px,color:#FFECD1
+
+    classDef default font-family:Arial,font-size:14px;

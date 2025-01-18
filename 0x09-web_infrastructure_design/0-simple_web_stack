@@ -1,0 +1,27 @@
+flowchart TD
+    A["User's Computer/Browser"]
+    B["Domain Name System (DNS)"]
+    C["Web Server (8.8.8.8)"]
+    
+    subgraph Server ["Server Components"]
+        D["Web Server (Nginx)"]
+        E["Application Server"]
+        F["Application Files"]
+        G["MySQL Database"]
+    end
+
+    A -->|"HTTP Request to www.foobar.com"| B
+    B -->|"Resolves to IP"| C
+    C --> Server
+    D <--> E
+    E <--> F
+    E <--> G
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#bfb,stroke:#333,stroke-width:2px
+    style Server fill:#ffd,stroke:#333,stroke-width:2px
+    style D fill:#dff,stroke:#333,stroke-width:2px
+    style E fill:#fdf,stroke:#333,stroke-width:2px
+    style F fill:#ddf,stroke:#333,stroke-width:2px
+    style G fill:#fdd,stroke:#333,stroke-width:2px

@@ -1,0 +1,53 @@
+graph TB
+    subgraph Internet
+        USER[User]
+    end
+
+    subgraph Load_Balancer_Cluster
+        LB1[HAProxy LB 1]
+        LB2[HAProxy LB 2]
+    end
+
+    subgraph Web_Server_Layer
+        WS1[Nginx Web Server 1]
+        WS2[Nginx Web Server 2]
+    end
+
+    subgraph Application_Server_Layer
+        AS1[App Server 1]
+        AS2[App Server 2]
+    end
+
+    subgraph Database_Layer
+        DB1[(Primary Database)]
+        DB2[(Secondary Database)]
+    end
+
+    USER --> LB1
+    USER --> LB2
+    
+    LB1 --> WS1
+    LB1 --> WS2
+    LB2 --> WS1
+    LB2 --> WS2
+    
+    WS1 --> AS1
+    WS1 --> AS2
+    WS2 --> AS1
+    WS2 --> AS2
+    
+    AS1 --> DB1
+    AS1 --> DB2
+    AS2 --> DB1
+    AS2 --> DB2
+
+    classDef default fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef lb fill:#ff9,stroke:#333,stroke-width:2px;
+    classDef web fill:#9f9,stroke:#333,stroke-width:2px;
+    classDef app fill:#99f,stroke:#333,stroke-width:2px;
+    classDef db fill:#f99,stroke:#333,stroke-width:2px;
+    
+    class LB1,LB2 lb;
+    class WS1,WS2 web;
+    class AS1,AS2 app;
+    class DB1,DB2 db;
