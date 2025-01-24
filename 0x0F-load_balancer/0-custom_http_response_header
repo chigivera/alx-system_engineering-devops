@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Configures Nginx with custom header on a new Ubuntu machine
+
+# Install nginx if not installed
+apt-get update
+apt-get install -y nginx
+
+# Create index page
+echo "Hello World!" > /var/www/html/index.html
+
+# Get hostname
+HOSTNAME=$(hostname)
+
+# Configure Nginx with custom header
+CONFIG_PATH="/etc/nginx/sites-available/default"
+HEADER_CONFIG="\n\tadd_header X-Served-By \"$HOSTNAME\";"
+sed -i "/server_name _;/a\\$HEADER_CONFIG" "$CONFIG_PATH"
+
+# Restart nginx (without systemctl)
+/etc/init.d/nginx restart
