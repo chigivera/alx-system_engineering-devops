@@ -1,0 +1,17 @@
+#!/bin/bash
+# Script to backup MySQL databases
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 <mysql_root_password>"
+    exit 1
+fi
+
+DATE=$(date +"%d-%m-%Y")
+BACKUP_FILE="backup.sql"
+ARCHIVE="$DATE.tar.gz"
+
+mysqldump -u root -p"$1" --all-databases > "$BACKUP_FILE"
+tar -czvf "$ARCHIVE" "$BACKUP_FILE"
+rm "$BACKUP_FILE"
+
+echo "Backup completed: $ARCHIVE"
