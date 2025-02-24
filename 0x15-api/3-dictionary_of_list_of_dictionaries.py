@@ -3,6 +3,7 @@
 import json
 import requests
 
+
 def export_all_to_json():
     """Export all employees' tasks to a JSON file."""
     base_url = "https://jsonplaceholder.typicode.com"
@@ -36,6 +37,7 @@ def export_all_to_json():
     json_filename = "todo_all_employees.json"
     with open(json_filename, mode='w') as json_file:
         json.dump(all_tasks, json_file)
+
 
 if __name__ == "__main__":
     export_all_to_json()

@@ -4,6 +4,7 @@ import csv
 import requests
 import sys
 
+
 def export_to_csv(employee_id):
     """Export the TODO list progress for a given employee ID to a CSV file."""
     base_url = "https://jsonplaceholder.typicode.com"
@@ -24,7 +25,13 @@ def export_to_csv(employee_id):
     with open(csv_filename, mode='w', newline='') as csv_file:
         csv_writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
         for task in todos_data:
-            csv_writer.writerow([employee_id, user_data.get("username"), task.get("completed"), task.get("title")])
+            csv_writer.writerow([
+                employee_id,
+                user_data.get("username"),
+                task.get("completed"),
+                task.get("title")
+            ])
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
